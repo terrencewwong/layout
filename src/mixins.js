@@ -8,6 +8,38 @@ export const backgroundMixin = css`
   `};
 `
 
+export const borderMixin = css`
+  ${is('b')`
+    border: ${props => props.b};
+  `};
+
+  ${is('bx')`
+    border-left: ${props => props.bx};
+    border-right: ${props => props.bx};
+  `};
+
+  ${is('by')`
+    border-top: ${props => props.by};
+    border-bottom: ${props => props.by};
+  `};
+
+  ${is('bt')`
+    border-top: ${props => props.bt};
+  `};
+
+  ${is('br')`
+    border-right: ${props => props.br};
+  `};
+
+  ${is('bb')`
+    border-bottom: ${props => props.bb};
+  `};
+
+  ${is('bl')`
+    border-left: ${props => props.bl};
+  `};
+`
+
 export const dimensionsMixin = css`
   ${is('width')`
     ${prop('width').is('remaining')`
@@ -28,6 +60,10 @@ export const dimensionsMixin = css`
     ${prop('height').isNot('remaining')`
       height: ${props => props.height};
     `};
+  `};
+
+  ${is('maxWidth')`
+    max-width: ${props => props.maxWidth};
   `};
 `
 

@@ -2,7 +2,12 @@ import styled from 'styled-components'
 import is from 'styled-is'
 import styledMap from 'styled-map'
 import prop from './styled-prop'
-import { backgroundMixin, dimensionsMixin, paddingMixin } from './mixins'
+import {
+  backgroundMixin,
+  borderMixin,
+  dimensionsMixin,
+  paddingMixin
+} from './mixins'
 
 const yAlign = styledMap('yAlign', {
   top: 'flex-start',
@@ -21,9 +26,11 @@ const Layout = styled.div.attrs({
   className: '__layout__'
 })`
   ${backgroundMixin};
+  ${borderMixin};
   ${dimensionsMixin};
   ${paddingMixin};
 
+  box-sizing: border-box;
   display: flex;
 
   /* Is this a good idea...?
