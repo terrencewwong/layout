@@ -26,14 +26,22 @@ const Layout = styled.div.attrs({
 
   display: flex;
 
+  /* Is this a good idea...?
+   * Maybe this is okay, because the idea is that
+   * ALL layout should be done with this component
+   */
+  position: relative;
+
+  /* Is this a good idea...?
+   * Adding this property to get width/height
+   * behaviour more like display: block
+   */
+  flex-shrink: 0;
+
   ${prop('flow').is('left-right')`
     flex-direction: row;
     align-items: ${yAlign};
     justify-content: ${xAlign};
-
-    ${prop('spaceBetweenChildren').is('remaining')`
-      justify-content: space-between;
-    `};
 
     ${is('spaceBetweenChildren')`
       & > *:not(:last-child) {
@@ -51,13 +59,19 @@ const Layout = styled.div.attrs({
 
     ${is('spaceBetweenChildren')`
       & > *:not(:last-child) {
-        margin-bottom: ${props => props.spaceBetweenChildren};
+        ${prop('spaceBetweenChildren').isNot('remaining')`
+          margin-bottom: ${props => props.spaceBetweenChildren};
+        `};
       }
     `};
 
     & > .__layout__ {
       width: 100%;
     }
+  `};
+
+  ${prop('spaceBetweenChildren').is('remaining')`
+    justify-content: space-between;
   `};
 `
 Layout.defaultProps = {
