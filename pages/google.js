@@ -43,7 +43,11 @@ export default () => (
       yAlign='center'
       spaceBetweenChildren='32px'
     >
-      <img src='https://www.google.fr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png' />
+      <img
+        height='92px'
+        width='272px'
+        src='https://www.google.fr/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png'
+      />
       <FakeInput />
       <Layout flow='left-right' spaceBetweenChildren='8px' xAlign='center'>
         <FakeButton />
